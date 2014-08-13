@@ -1,0 +1,8 @@
+@function set-text-color($color, $out-color-1, $out-color-2) {
+    @if (lightness( $color ) > 40) {
+      @return $out-color-1;
+    }
+    @else {
+      @return $out-color-2;
+    }
+}
