@@ -1,6 +1,4 @@
-﻿$pad: 20px;
-
-$font-family-base: Sans-Serif;
+﻿$font-family-base: Sans-Serif;
 $font-family-icon: 'FontAwesome';
 
 $font-size-base: 14px !default;
@@ -27,6 +25,8 @@ $color-3: #2980B9; // blue
 $color-4: #3498DB; // blue-light
 $color-5: #E74C3C; // red
 
+$grid-columns: 12;
+$grid-gutter: 20px;
 $screen-phone: 480px; 
 $screen-tablet: 768px;
 $screen-desktop: 992px;
