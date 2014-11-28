@@ -20,11 +20,11 @@ gem install compass
 
 #### 4. Install node.js
 
-[node.js](http://nodejs.org/)
+[Node.js](http://nodejs.org/)
 
 #### 5. Install Gulp globally
 
-Start Node.js command prompt and run this and the coming steps in the same window
+Start node.js command prompt and run this and the coming steps in the same window
 
 ```sh
 npm install --global gulp
