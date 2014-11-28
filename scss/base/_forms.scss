@@ -1,0 +1,15 @@
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+// Reset list paddings
+header ul,
+footer ul {
+	padding: 0;
+}

@@ -1,5 +1,5 @@
-﻿* {
-	@include box-sizing(border-box);
+* {
+	box-sizing: border-box;
 }
 
 html,
@@ -17,20 +17,4 @@ body {
 	line-height: $line-height-base;
 	color: $color-font-base;
 	background-color: $color-bg-base;
-}
-
-// Reset fonts for relevant elements
-input,
-button,
-select,
-textarea {
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
-}
-
-// Reset list paddings
-header ul,
-footer ul {
-	padding: 0;
 }

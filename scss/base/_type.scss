@@ -42,13 +42,6 @@ p {
 	margin: 0 0 ($line-height-computed / 2);
 }
 
-.small  { font-size: 85%; }
-
-.text-left           { text-align: left; }
-.text-right          { text-align: right; }
-.text-center         { text-align: center; }
-.text-justify        { text-align: justify; }
-
 blockquote {
 	padding: ($line-height-computed / 2) $line-height-computed;
 	margin: 0 0 $line-height-computed;

@@ -1,4 +1,4 @@
-﻿$font-family-base: Sans-Serif;
+$font-family-base: Sans-Serif;
 $font-family-icon: 'FontAwesome';
 
 $font-size-base: 14px !default;
@@ -16,14 +16,6 @@ $line-height-base: 1.5;
 $line-height-headings: 1.1;
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
-
-$color-bg-base: #e0e0e0; // gray
-$color-font-base: #202020; // black-light
-$color-1: #ffffff; // white
-$color-2: #51048e; // purple
-$color-3: #2980B9; // blue
-$color-4: #3498DB; // blue-light
-$color-5: #E74C3C; // red
 
 $grid-columns: 12;
 $grid-gutter: 20px;

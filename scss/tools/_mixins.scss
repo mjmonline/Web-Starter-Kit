@@ -1,0 +1,55 @@
+@mixin breakpoint($point) {
+    @if $point == large {
+        @media (min-width: $screen-large) {
+            @content;
+        }
+    }
+    @else if $point == desktop {
+        @media (min-width: $screen-desktop) {
+            @content;
+        }
+    }
+    @else if $point == tablet {
+        @media (min-width: $screen-tablet) {
+            @content;
+        }
+    }
+    @else if $point == phone {
+        @media (min-width: $screen-phone) {
+            @content;
+        }
+    }
+}
+
+@mixin font-icon($font-size: $font-family-base) {
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    font-family: $font-family-icons;
+    font-size: $font-size;
+    text-rendering: auto; // optimizelegibility throws things off #1094
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-base($weight: normal, $style: normal) {
+	font-family: $font-family-base;
+	line-height: $line-height-base;	
+	font-weight: $weight;
+	font-style: $style;
+}
+
+@mixin font-heading($line-height: 1.1, $weight: 800) {
+	font-family: $font-family-base;
+	line-height: $line-height;	
+	font-weight: $weight;
+	font-style: normal;
+}
+
+@mixin font-size-rem($size: $font-size-base) {
+	$size: parseInt($size) ;
+
+	font-size: $size + px;
+	font-size: ($size / 10) + rem;
+}
