@@ -18,7 +18,7 @@ gem install sass
 gem install compass
 ```
 
-#### 4. Install Node.js
+#### 4. Install node.js
 
 [Node.Js](http://nodejs.org/)
 
