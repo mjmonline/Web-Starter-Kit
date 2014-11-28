@@ -2,9 +2,7 @@
 
 #### 1. Install Ruby if you are running Windows.js
 
-```sh
 [Ruby installer](http://rubyinstaller.org/)
-```
 
 #### 2. Install Sass:
 
@@ -22,9 +20,7 @@ gem install compass
 
 #### 4. Install Node.js:
 
-```sh
 [Node.Js](http://nodejs.org/)
-```
 
 #### 5. Install Gulp globally
 
