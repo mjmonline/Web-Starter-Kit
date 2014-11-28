@@ -20,7 +20,7 @@ gem install compass
 
 #### 4. Install node.js
 
-[Node.Js](http://nodejs.org/)
+[node.js](http://nodejs.org/)
 
 #### 5. Install Gulp globally
 
