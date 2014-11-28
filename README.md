@@ -4,21 +4,21 @@
 
 [Ruby installer](http://rubyinstaller.org/)
 
-#### 2. Install Sass:
+#### 2. Install Sass
 
-Start Ruby command prompt and run
+Start Ruby command prompt and run:
 
 ```sh
 gem install sass
 ```
 
-#### 3. Install Compass:
+#### 3. Install Compass
 
 ```sh
 gem install compass
 ```
 
-#### 4. Install Node.js:
+#### 4. Install Node.js
 
 [Node.Js](http://nodejs.org/)
 
