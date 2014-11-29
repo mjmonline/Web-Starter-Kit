@@ -4,9 +4,28 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifyCSS = require('gulp-minify-css'),
+    concat = require('gulp-concat'),
+    imagemin = require('gulp-imagemin'),
     rename = require("gulp-rename"),
     uglify = require('gulp-uglify'),
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+    notify = require("gulp-notify"),
+    cache = require('gulp-cache'),
+    del = require('del'),
+    livereload = require('gulp-livereload'),
+    config = {
+        destination: 'build',
+        port: 9000,
+        scripts: function () {
+            return config.destination + '/js';
+        },
+        styles: function () {
+            return config.destination + '/css';
+        },
+        images: function () {
+            return config.destination + '/img';
+        }
+    };
 
 gulp.task('styles', function() {
     gulp.src('./scss/*.scss')
@@ -15,27 +34,49 @@ gulp.task('styles', function() {
             style: 'expanded'
         }))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
+            browsers: ['last 3 versions']
         }))
-        .pipe(gulp.dest('./build/css'))
+        .pipe(gulp.dest(config.styles))
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(minifyCSS())
-        .pipe(gulp.dest('./build/css'));
+        .pipe(gulp.dest(config.styles))
+        .pipe(notify("Styles compilation successful"));
 });
 
 gulp.task('scripts', function() {
-    gulp.src('js/*.js')
+    gulp.src(['./js/main.js'])
         .pipe(plumber())
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest(config.scripts))
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./build/js'))
+        .pipe(gulp.dest(config.scripts))
+        .pipe(notify("Scripts compilation successful"));
+});
+
+gulp.task('images', function () {
+    return gulp.src('./img/*')
+        .pipe(cache(imagemin({
+            optimizationLevel: 3,
+            progressive: true,
+            interlaced: true,
+            svgoPlugins: [{removeViewBox: false}]
+        })))
+        .pipe(gulp.dest(config.images))
+        .pipe(notify("Images minified"));
+});
+
+// Run "gulp clean" to remove the build folder
+gulp.task('clean', function() {
+    del([config.destination], function (err) {
+        console.log('Files deleted');
+    });
 });
 
 gulp.task('watch', function () {
@@ -43,5 +84,5 @@ gulp.task('watch', function () {
     gulp.watch('js/*.js', ['scripts']);
 });
 
-gulp.task('default', ['styles', 'scripts', 'watch'], function() {
+gulp.task('default', ['styles', 'scripts', 'images', 'watch'], function() {
 });

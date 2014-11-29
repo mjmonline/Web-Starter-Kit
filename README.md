@@ -49,5 +49,5 @@ To run individual tasks, use `gulp <task> <othertask>`.
 
 ## To do
 
-* Investigate why autoprifixer isn't working
 * Replace current unsemantic grid system
+* Add some default styling
