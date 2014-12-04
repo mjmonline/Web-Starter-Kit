@@ -9,10 +9,9 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     uglify = require('gulp-uglify'),
     watch = require('gulp-watch'),
-    notify = require("gulp-notify"),
     cache = require('gulp-cache'),
     del = require('del'),
-    livereload = require('gulp-livereload'),
+    connect = require('gulp-connect'),
     config = {
         destination: 'build',
         port: 9000,
@@ -42,7 +41,7 @@ gulp.task('styles', function() {
         }))
         .pipe(minifyCSS())
         .pipe(gulp.dest(config.styles))
-        .pipe(notify("Styles compilation successful"));
+        .pipe(connect.reload());
 });
 
 gulp.task('scripts', function() {
@@ -57,7 +56,7 @@ gulp.task('scripts', function() {
             suffix: '.min'
         }))
         .pipe(gulp.dest(config.scripts))
-        .pipe(notify("Scripts compilation successful"));
+        .pipe(connect.reload());
 });
 
 gulp.task('images', function () {
@@ -68,14 +67,21 @@ gulp.task('images', function () {
             interlaced: true,
             svgoPlugins: [{removeViewBox: false}]
         })))
-        .pipe(gulp.dest(config.images))
-        .pipe(notify("Images minified"));
+        .pipe(gulp.dest(config.images));
+});
+
+gulp.task('connect', function() {
+    connect.server({
+        root: './',
+        port: 8888,
+        livereload: true
+    });
 });
 
 // Run "gulp clean" to remove the build folder
 gulp.task('clean', function() {
     del([config.destination], function (err) {
-        console.log('Files deleted');
+        console.log(config.destination + ' folder deleted');
     });
 });
 
@@ -84,5 +90,5 @@ gulp.task('watch', function () {
     gulp.watch('js/*.js', ['scripts']);
 });
 
-gulp.task('default', ['styles', 'scripts', 'images', 'watch'], function() {
+gulp.task('default', ['styles', 'scripts', 'images', 'connect', 'watch'], function() {
 });

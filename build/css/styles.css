@@ -338,8 +338,7 @@ body {
   font-size: 14px;
   line-height: 1.5;
   color: #202020;
-  background-color: #e0e0e0;
-  background-image: linear-gradient(to bottom, #444444, #999999); }
+  background-color: #e0e0e0; }
 
 input, button, select, textarea {
   font-family: inherit;
