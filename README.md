@@ -1,6 +1,6 @@
 # Getting Started
 
-#### 1. Install Ruby if you are running Windows.js
+#### 1. Install Ruby if you are running Windows
 
 [Ruby installer](http://rubyinstaller.org/)
 
