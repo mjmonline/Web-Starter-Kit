@@ -32,6 +32,8 @@ npm install --global gulp
 
 #### 6. Install the Gulp plugins
 
+Navigate to the project folder in node.js command prompt
+
 ```sh
 npm install
 ```
